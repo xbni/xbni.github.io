@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{190:function(n,o,i){"use strict";i.r(o);var l=i(0),e=Object(l.a)({},void 0,void 0,!1,null,null,null);e.options.__file="gitalk.vue",o.default=e.exports}}]);

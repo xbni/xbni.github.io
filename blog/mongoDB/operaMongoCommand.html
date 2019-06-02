@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>操作mongodb相关命令 | 吃饭@我</title>
+    <meta name="description" content="博客">
+    <link rel="icon" href="/logo.ico">
+    
+    <link rel="preload" href="/assets/css/styles.eb14ff62.css" as="style"><link rel="preload" href="/assets/js/app.eb14ff62.js" as="script"><link rel="preload" href="/assets/js/17.057d860a.js" as="script"><link rel="prefetch" href="/assets/js/11.9e8ede4d.js"><link rel="prefetch" href="/assets/css/1.styles.702738f5.css"><link rel="prefetch" href="/assets/js/1.702738f5.js"><link rel="prefetch" href="/assets/css/2.styles.c9d02e2c.css"><link rel="prefetch" href="/assets/js/2.c9d02e2c.js"><link rel="prefetch" href="/assets/css/3.styles.c51114d8.css"><link rel="prefetch" href="/assets/js/3.c51114d8.js"><link rel="prefetch" href="/assets/js/4.2f8ead61.js"><link rel="prefetch" href="/assets/css/5.styles.ea89519d.css"><link rel="prefetch" href="/assets/js/5.ea89519d.js"><link rel="prefetch" href="/assets/css/6.styles.9a3bfe60.css"><link rel="prefetch" href="/assets/js/6.9a3bfe60.js"><link rel="prefetch" href="/assets/css/7.styles.a2e6ea9b.css"><link rel="prefetch" href="/assets/js/7.a2e6ea9b.js"><link rel="prefetch" href="/assets/css/8.styles.a355c432.css"><link rel="prefetch" href="/assets/js/8.a355c432.js"><link rel="prefetch" href="/assets/css/9.styles.69db45a8.css"><link rel="prefetch" href="/assets/js/9.69db45a8.js"><link rel="prefetch" href="/assets/css/10.styles.79b8585d.css"><link rel="prefetch" href="/assets/js/10.79b8585d.js"><link rel="prefetch" href="/assets/js/12.604f3d16.js"><link rel="prefetch" href="/assets/js/13.271d7696.js"><link rel="prefetch" href="/assets/js/14.2979373c.js"><link rel="prefetch" href="/assets/js/15.a647d0bf.js"><link rel="prefetch" href="/assets/js/16.207c192b.js"><link rel="prefetch" href="/assets/js/18.8dd4468b.js"><link rel="prefetch" href="/assets/js/19.6e22d397.js"><link rel="prefetch" href="/assets/js/20.a7f42864.js"><link rel="prefetch" href="/assets/js/21.d4f064d0.js"><link rel="prefetch" href="/assets/js/22.e88f26ff.js"><link rel="prefetch" href="/assets/js/23.79e1f151.js"><link rel="prefetch" href="/assets/js/24.f562fdc6.js"><link rel="prefetch" href="/assets/js/25.1779e22a.js"><link rel="prefetch" href="/assets/js/26.80781b27.js"><link rel="prefetch" href="/assets/js/27.4f53e79f.js"><link rel="prefetch" href="/assets/js/28.c57f41fc.js"><link rel="prefetch" href="/assets/js/29.4ba2bb11.js"><link rel="prefetch" href="/assets/js/30.26b9fda8.js"><link rel="prefetch" href="/assets/js/31.b66647ac.js"><link rel="prefetch" href="/assets/js/32.b6090275.js"><link rel="prefetch" href="/assets/js/33.7d56a5d8.js">
+    <link rel="stylesheet" href="/assets/css/1.styles.702738f5.css"><link rel="stylesheet" href="/assets/css/2.styles.c9d02e2c.css"><link rel="stylesheet" href="/assets/css/3.styles.c51114d8.css"><link rel="stylesheet" href="/assets/css/5.styles.ea89519d.css"><link rel="stylesheet" href="/assets/css/6.styles.9a3bfe60.css"><link rel="stylesheet" href="/assets/css/7.styles.a2e6ea9b.css"><link rel="stylesheet" href="/assets/css/8.styles.a355c432.css"><link rel="stylesheet" href="/assets/css/9.styles.69db45a8.css"><link rel="stylesheet" href="/assets/css/10.styles.79b8585d.css"><link rel="stylesheet" href="/assets/css/styles.eb14ff62.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">吃饭@我</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/blog/JigsawGame.html" class="nav-link">博客</a></div><div class="nav-item"><a href="/note/demo/jigsaw.html" class="nav-link">笔记</a></div> <a href="https://github.com/chenyejun?tab=repositories" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">主页</a></div><div class="nav-item"><a href="/blog/JigsawGame.html" class="nav-link">博客</a></div><div class="nav-item"><a href="/note/demo/jigsaw.html" class="nav-link">笔记</a></div> <a href="https://github.com/chenyejun?tab=repositories" target="_blank" rel="noopener noreferrer" class="repo-link">
+    GitHub
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading"><span>css</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>js</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>nodejs</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>mongoDB</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/blog/mongoDB/winInstallMongodb.html" class="sidebar-link">windows安装mongodb</a></li><li><a href="/blog/mongoDB/mongodbAddUser.html" class="sidebar-link">mongodb添加管理员和用户</a></li><li><a href="/blog/mongoDB/operaMongoCommand.html" class="active sidebar-link">操作mongodb相关命令</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/blog/mongoDB/operaMongoCommand.html#一、基本命令" class="sidebar-link">一、基本命令</a></li><li class="sidebar-sub-header"><a href="/blog/mongoDB/operaMongoCommand.html#二、操作数据库命令" class="sidebar-link">二、操作数据库命令</a></li><li class="sidebar-sub-header"><a href="/blog/mongoDB/operaMongoCommand.html#三、操纵集合命令" class="sidebar-link">三、操纵集合命令</a></li><li class="sidebar-sub-header"><a href="/blog/mongoDB/operaMongoCommand.html#四、操纵文档命令" class="sidebar-link">四、操纵文档命令</a></li></ul></li></ul></div></li><li><a href="/blog/JigsawGame.html" class="sidebar-link">自定义上传图片拼图游戏</a></li><li><a href="/blog/weixinJSDK.html" class="sidebar-link">微信本地调试js-sdk</a></li><li><a href="/blog/base64FileRelation.html" class="sidebar-link">base64图片编码大小与原图文件大小之间的联系</a></li></ul> </div> <div class="page"> <div class="content"><h1 id="操作mongodb相关命令"><a href="#操作mongodb相关命令" aria-hidden="true" class="header-anchor">#</a> 操作mongodb相关命令</h1> <h2 id="一、基本命令"><a href="#一、基本命令" aria-hidden="true" class="header-anchor">#</a> 一、基本命令</h2> <h3 id="显示所有数据库"><a href="#显示所有数据库" aria-hidden="true" class="header-anchor">#</a> 显示所有数据库</h3> <div class="language- extra-class"><pre class="language-text"><code>show dbs
+</code></pre></div><h3 id="切换数据库，数据库不存在则创建"><a href="#切换数据库，数据库不存在则创建" aria-hidden="true" class="header-anchor">#</a> 切换数据库，数据库不存在则创建</h3> <div class="language- extra-class"><pre class="language-text"><code>use xiaojun
+</code></pre></div><h3 id="创建一个集合"><a href="#创建一个集合" aria-hidden="true" class="header-anchor">#</a> 创建一个集合</h3> <div class="language- extra-class"><pre class="language-text"><code>db.createCollection(&quot;xiaojunjihe&quot;)
+</code></pre></div><h3 id="显示所有集合集合"><a href="#显示所有集合集合" aria-hidden="true" class="header-anchor">#</a> 显示所有集合集合</h3> <div class="language- extra-class"><pre class="language-text"><code>show collections
+</code></pre></div><h3 id="删除集合"><a href="#删除集合" aria-hidden="true" class="header-anchor">#</a> 删除集合</h3> <div class="language- extra-class"><pre class="language-text"><code>db.xiaojunjihe.drop()
+</code></pre></div><h3 id="往集合插入文档数据，如果集合不存在则创建该集合"><a href="#往集合插入文档数据，如果集合不存在则创建该集合" aria-hidden="true" class="header-anchor">#</a> 往集合插入文档数据，如果集合不存在则创建该集合</h3> <div class="language- extra-class"><pre class="language-text"><code>db.xiaojunjihe.insert({id:1,name:&quot;xiaojun&quot;})
+</code></pre></div><h3 id="显示集合的所有文档数据"><a href="#显示集合的所有文档数据" aria-hidden="true" class="header-anchor">#</a> 显示集合的所有文档数据</h3> <div class="language- extra-class"><pre class="language-text"><code>db.xiaojunjihe.find()
+</code></pre></div><h3 id="删除某一条文档数据"><a href="#删除某一条文档数据" aria-hidden="true" class="header-anchor">#</a> 删除某一条文档数据</h3> <div class="language- extra-class"><pre class="language-text"><code>db.xiaojunjihe.remove({id:1})
+</code></pre></div><h3 id="删除所有文档数据"><a href="#删除所有文档数据" aria-hidden="true" class="header-anchor">#</a> 删除所有文档数据</h3> <div class="language- extra-class"><pre class="language-text"><code>db.xiaojunjihe.remove({})
+</code></pre></div><h3 id="删除文档中的某一个字段"><a href="#删除文档中的某一个字段" aria-hidden="true" class="header-anchor">#</a> 删除文档中的某一个字段</h3> <div class="language- extra-class"><pre class="language-text"><code>使用update命令
+
+update命令格式：
+
+db.collection.update(criteria,objNew,upsert,multi)
+
+参数说明：
+
+criteria：查询条件
+
+objNew：update对象和一些更新操作符
+
+upsert：如果不存在update的记录，是否插入objNew这个新的文档，true为插入，默认为false，不插入。
+
+multi：默认是false，只更新找到的第一条记录。如果为true，把按条件查询出来的记录全部更新。
+
+//例如要把User表中address字段删除
+db.User.update({},{$unset:{'address':''}},false, true)
+
+</code></pre></div><h3 id="统计所有文档数据条数"><a href="#统计所有文档数据条数" aria-hidden="true" class="header-anchor">#</a> 统计所有文档数据条数</h3> <div class="language- extra-class"><pre class="language-text"><code>db.xiaojunjihe.count()
+</code></pre></div><h2 id="二、操作数据库命令"><a href="#二、操作数据库命令" aria-hidden="true" class="header-anchor">#</a> 二、操作数据库命令</h2> <h3 id="显示所有数据库-2"><a href="#显示所有数据库-2" aria-hidden="true" class="header-anchor">#</a> 显示所有数据库</h3> <div class="language- extra-class"><pre class="language-text"><code>show dbs
+</code></pre></div><h3 id="切换数据库，没有则创建"><a href="#切换数据库，没有则创建" aria-hidden="true" class="header-anchor">#</a> 切换数据库，没有则创建</h3> <div class="language- extra-class"><pre class="language-text"><code>use xiaojun
+</code></pre></div><h3 id="删除数据库"><a href="#删除数据库" aria-hidden="true" class="header-anchor">#</a> 删除数据库</h3> <div class="language- extra-class"><pre class="language-text"><code>use xiaojun //切换到数据库
+db.dropDatabase()
+</code></pre></div><h2 id="三、操纵集合命令"><a href="#三、操纵集合命令" aria-hidden="true" class="header-anchor">#</a> 三、操纵集合命令</h2> <p>在这里需要注意的是，创建的集合名应该以s结尾，因为当使用mongoose等框架操作数据库时，会自动给集合名结尾添加s</p> <h3 id="创建集合"><a href="#创建集合" aria-hidden="true" class="header-anchor">#</a> 创建集合</h3> <div class="language- extra-class"><pre class="language-text"><code>db.createCollection('xiaojunjihes')
+</code></pre></div><h3 id="删除集合-2"><a href="#删除集合-2" aria-hidden="true" class="header-anchor">#</a> 删除集合</h3> <div class="language- extra-class"><pre class="language-text"><code>db.xiaojunjihes.drop()
+</code></pre></div><h2 id="四、操纵文档命令"><a href="#四、操纵文档命令" aria-hidden="true" class="header-anchor">#</a> 四、操纵文档命令</h2> <h3 id="集合插入文档数据，如果集合不存在则创建并插入数据"><a href="#集合插入文档数据，如果集合不存在则创建并插入数据" aria-hidden="true" class="header-anchor">#</a> 集合插入文档数据，如果集合不存在则创建并插入数据</h3> <div class="language- extra-class"><pre class="language-text"><code>db.xiaojunjihes.insert({name:'xiaojun'})
+
+</code></pre></div><h3 id="删除指定集合中的所有文档数据"><a href="#删除指定集合中的所有文档数据" aria-hidden="true" class="header-anchor">#</a> 删除指定集合中的所有文档数据</h3> <div class="language- extra-class"><pre class="language-text"><code>db.xiaojunjihes.remove({})
+
+</code></pre></div><h3 id="删除某一条文档数据-2"><a href="#删除某一条文档数据-2" aria-hidden="true" class="header-anchor">#</a> 删除某一条文档数据</h3> <div class="language- extra-class"><pre class="language-text"><code>db.xiaojunjihes.remove({name:'xiaojun'})
+</code></pre></div><h3 id="删除文档中的某一个字段-2"><a href="#删除文档中的某一个字段-2" aria-hidden="true" class="header-anchor">#</a> 删除文档中的某一个字段</h3> <div class="language- extra-class"><pre class="language-text"><code>update命令
+
+update命令格式：
+
+db.collections.update(criteria,objNew,upsert,multi)
+
+参数说明：
+
+criteria：查询条件
+
+objNew：update对象和一些更新操作符
+
+upsert：如果不存在update的记录，是否插入objNew这个新的文档，true为插入，默认为false，不插入。
+
+multi：默认是false，只更新找到的第一条记录。如果为true，把按条件查询出来的记录全部更新。
+
+//例如要把User表中address字段删除
+db.Users.update({},{$unset:{'address':''}},false, true)
+</code></pre></div><h3 id="修改集文档中的某一个字段，与上面的unset不同，这里是set，第一个参数是查询条件"><a href="#修改集文档中的某一个字段，与上面的unset不同，这里是set，第一个参数是查询条件" aria-hidden="true" class="header-anchor">#</a> 修改集文档中的某一个字段，与上面的unset不同，这里是set，第一个参数是查询条件</h3> <p>例如要把User表_id为ObjectId(&quot;587e5e0e09a4670334208e88&quot;)的文档中的name:的字段改成name:'dajun'</p> <div class="language- extra-class"><pre class="language-text"><code>db.Users.update({&quot;_id&quot;:ObjectId(&quot;587e5e0e09a4670334208e88&quot;)},{$set:{'name':'dajun'}},false, true)
+</code></pre></div><h3 id="向某一个文档添加一个字段："><a href="#向某一个文档添加一个字段：" aria-hidden="true" class="header-anchor">#</a> 向某一个文档添加一个字段：</h3> <p>例如下面向User中_id为ObjectId(&quot;587e5e0e09a4670334208e88&quot;)的文档添加一个u:1字段</p> <div class="language- extra-class"><pre class="language-text"><code>db.Users.update({&quot;_id&quot; : ObjectId(&quot;587e5e0e09a4670334208e88&quot;)},{&quot;$set&quot; : {&quot;u&quot; : &quot;1&quot;}});
+
+</code></pre></div><h3 id="统计集合中数据的条数"><a href="#统计集合中数据的条数" aria-hidden="true" class="header-anchor">#</a> 统计集合中数据的条数</h3> <div class="language- extra-class"><pre class="language-text"><code>db.xiaojunjihes.count()
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/blog/mongoDB/mongodbAddUser.html" class="prev">
+          mongodb添加管理员和用户
+        </a></span> <span class="next"><a href="/blog/JigsawGame.html">
+          自定义上传图片拼图游戏
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/assets/js/17.057d860a.js" defer></script><script src="/assets/js/app.eb14ff62.js" defer></script>
+  </body>
+</html>
